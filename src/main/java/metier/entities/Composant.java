@@ -1,6 +1,5 @@
 package metier.entities;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-<<<<<<< HEAD
 import javax.persistence.ManyToMany;
 
 import lombok.AllArgsConstructor;
