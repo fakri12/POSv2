@@ -13,11 +13,6 @@ public class ImplementComponent implements Methods<Composant> {
 
 	@Override
 	public Composant supprimer(int id) {
-		for(int i=0 ; i<composnts.size() ; i++) {
-	    	if(composnts.get(i).getId()==id) {
-	    		return composnts.remove(i);
-	    	}
-	    }
 	     return null;
 	}
 
@@ -34,11 +29,6 @@ public class ImplementComponent implements Methods<Composant> {
 
 	@Override
 	public Composant update(int id, Composant t) {
-		for(int i=0 ; i<composnts.size() ; i++) {
-	    	if(composnts.get(i).getId()==id) {
-	    		return composnts.set(i, t);
-	    	}
-		}
 		return null;
 	}
 
