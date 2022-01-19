@@ -1,8 +1,34 @@
 package metier.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
-public abstract class Composant {
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "componntName",length = 15)
+@Data @AllArgsConstructor @NoArgsConstructor @ToString
+public abstract class Composant implements Serializable {
+	
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long id;
 	private String name;
 	private String description;
@@ -13,8 +39,10 @@ public abstract class Composant {
 	private int quantity;
 	private int numberPersonRate;
 	private int numberRate;
-	private ArrayList<Category> categories;
-	private ArrayList<ComposantQuantity> composantQuantities;
+
+	
+	@OneToMany(mappedBy = "composant")
+	private List<ComposantQuantity> composantQuantities;
 	
 	
 	public int calculRate() {
@@ -22,138 +50,6 @@ public abstract class Composant {
 	}
 
 
-	public Long getId() {
-		return id;
-	}
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public String getDescription() {
-		return description;
-	}
-
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-
-	public double getPrice() {
-		return price;
-	}
-
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
-
-	public String getType() {
-		return type;
-	}
-
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-
-	public String getPicture() {
-		return picture;
-	}
-
-
-	public void setPicture(String picture) {
-		this.picture = picture;
-	}
-
-
-	public double getDiscount() {
-		return discount;
-	}
-
-
-	public void setDiscount(double discount) {
-		this.discount = discount;
-	}
-
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
-
-	public int getNumberPersonRate() {
-		return numberPersonRate;
-	}
-
-
-	public void setNumberPersonRate(int numberPersonRate) {
-		this.numberPersonRate = numberPersonRate;
-	}
-
-
-	public int getNumberRate() {
-		return numberRate;
-	}
-
-
-	public void setNumberRate(int numberRate) {
-		this.numberRate = numberRate;
-	}
-	
-	
-	public void setPrice() {
-		this.price = this.price*this.discount + this.price;
-	}
-
-
-	public ArrayList<Category> getCategories() {
-		return categories;
-	}
-
-
-	public void setCategories(ArrayList<Category> categories) {
-		this.categories = categories;
-	}
-
-
-	public ArrayList<ComposantQuantity> getComposantQuantities() {
-		return composantQuantities;
-	}
-
-
-	public void setComposantQuantities(ArrayList<ComposantQuantity> composantQuantities) {
-		this.composantQuantities = composantQuantities;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Composant [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price
-				+ ", type=" + type + ", picture=" + picture + ", discount=" + discount + ", quantity=" + quantity
-				+ ", numberPersonRate=" + numberPersonRate + ", numberRate=" + numberRate + ", categories=" + categories
-				+ ", composantQuantities=" + composantQuantities + "]";
-	}
 	
 	
 	

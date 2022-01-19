@@ -1,29 +1,32 @@
 package metier.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Entity
+@Data @NoArgsConstructor @AllArgsConstructor @ToString
 public class ComposantQuantity {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	
+	@ManyToOne
 	private Commande commande;
+	
+	@ManyToOne
 	private Composant composant;
 	
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public Commande getCommande() {
-		return commande;
-	}
-	public void setCommande(Commande commande) {
-		this.commande = commande;
-	}
-	public Composant getComposant() {
-		return composant;
-	}
-	public void setComposant(Composant composant) {
-		this.composant = composant;
-	}
 	
 	
 }

@@ -1,39 +1,29 @@
 package metier.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Entity
+@Data @NoArgsConstructor @AllArgsConstructor @ToString
 public class Reclamation {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private Commande commande; 
 	private String detailsReclamation;
 	
+	@OneToOne(mappedBy = "reclamation")
+	private Commande commande; 
 	
-	public int getId() {
-		return id;
-	}
 	
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	public Commande getCommande() {
-		return commande;
-	}
-	
-	public void setCommande(Commande commande) {
-		this.commande = commande;
-	}
-	
-	public String getDetailsReclamation() {
-		return detailsReclamation;
-	}
-	
-	public void setDetailsReclamation(String detailsReclamation) {
-		this.detailsReclamation = detailsReclamation;
-	}
-
-	@Override
-	public String toString() {
-		return "Reclamation [id=" + id + ", commande=" + commande + ", detailsReclamation=" + detailsReclamation + "]";
-	}
 	
 	
 	
