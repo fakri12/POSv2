@@ -1,5 +1,6 @@
 package metier.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+<<<<<<< HEAD
 import javax.persistence.ManyToMany;
 
 import lombok.AllArgsConstructor;
@@ -36,6 +38,9 @@ public abstract class Composant {
 	private int numberRate;
     @ManyToMany
 	private List<Category> categories = new ArrayList<Category>();
-	private ArrayList<ComposantQuantity> composantQuantities;	
+	
+	public int calculRate() {
+		return (int) this.numberRate/this.numberPersonRate;
+	}
 	
 }
