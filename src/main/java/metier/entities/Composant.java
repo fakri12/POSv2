@@ -1,5 +1,6 @@
 package metier.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,12 +12,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -34,11 +38,17 @@ public abstract class Composant {
 	private int quantity;
 	private int numberPersonRate;
 	private int numberRate;
+
+	
+	@OneToMany(mappedBy = "composant")
+	private List<ComposantQuantity> composantQuantities;
+	
     @ManyToMany
 	private List<Category> categories = new ArrayList<Category>();
 	
 	public int calculRate() {
 		return (int) this.numberRate/this.numberPersonRate;
 	}
+
 	
 }
