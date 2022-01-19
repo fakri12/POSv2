@@ -1,8 +1,24 @@
 package metier.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Composant {
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "Componentname",discriminatorType = DiscriminatorType.STRING,length = 15)
+public abstract class Composant implements Serializable {
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long id;
 	private String name;
 	private String description;
@@ -13,8 +29,8 @@ public abstract class Composant {
 	private int quantity;
 	private int numberPersonRate;
 	private int numberRate;
-	private ArrayList<Category> categories;
-	private ArrayList<ComposantQuantity> composantQuantities;
+	//private ArrayList<Category> categories;
+	//private ArrayList<ComposantQuantity> composantQuantities;
 	
 	
 	public int calculRate() {
@@ -22,14 +38,6 @@ public abstract class Composant {
 	}
 
 
-	public Long getId() {
-		return id;
-	}
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 
 	public String getName() {
@@ -127,34 +135,34 @@ public abstract class Composant {
 	}
 
 
-	public ArrayList<Category> getCategories() {
-		return categories;
-	}
-
-
-	public void setCategories(ArrayList<Category> categories) {
-		this.categories = categories;
-	}
-
-
-	public ArrayList<ComposantQuantity> getComposantQuantities() {
-		return composantQuantities;
-	}
-
-
-	public void setComposantQuantities(ArrayList<ComposantQuantity> composantQuantities) {
-		this.composantQuantities = composantQuantities;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Composant [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price
-				+ ", type=" + type + ", picture=" + picture + ", discount=" + discount + ", quantity=" + quantity
-				+ ", numberPersonRate=" + numberPersonRate + ", numberRate=" + numberRate + ", categories=" + categories
-				+ ", composantQuantities=" + composantQuantities + "]";
-	}
-	
+//	public ArrayList<Category> getCategories() {
+//		return categories;
+//	}
+//
+//
+//	public void setCategories(ArrayList<Category> categories) {
+//		this.categories = categories;
+//	}
+//
+//
+//	public ArrayList<ComposantQuantity> getComposantQuantities() {
+//		return composantQuantities;
+//	}
+//
+//
+//	public void setComposantQuantities(ArrayList<ComposantQuantity> composantQuantities) {
+//		this.composantQuantities = composantQuantities;
+//	}
+//
+//
+//	@Override
+//	public String toString() {
+//		return "Composant [name=" + name + ", description=" + description + ", price=" + price
+//				+ ", type=" + type + ", picture=" + picture + ", discount=" + discount + ", quantity=" + quantity
+//				+ ", numberPersonRate=" + numberPersonRate + ", numberRate=" + numberRate + ", categories=" + categories
+//				+ ", composantQuantities=" + composantQuantities + "]";
+//	}
+//	
 	
 	
 	
