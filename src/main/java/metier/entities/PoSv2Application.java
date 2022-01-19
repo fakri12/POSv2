@@ -25,29 +25,6 @@ public class PoSv2Application implements CommandLineRunner {
 	@Autowired
 	private ComponentRepository componentRepository;
 	
-	
-//	@Autowired
-//	private CulasseRepository culasseRepository;
-//	
-//	@Autowired
-//	private TurboRepository turboRepository;
-	
-	@Autowired
-	private EngineRepository engineRepository;
-	
-//	@Autowired
-//	private ComponentEngineRepository componentEngineRepository;
-	
-	@Autowired
-	private ClientRepository clientRepository;
-	
-	@Autowired
-	private ReclamationRepository reclamationRepository;
-	
-	@Autowired
-	private CommandeRepository commandeRepository;
-	
-	
 	public static void main(String[] args) {
 		SpringApplication.run(PoSv2Application.class, args);
 	
@@ -99,11 +76,6 @@ public class PoSv2Application implements CommandLineRunner {
 		
 		
 		
-		
-		
-		
-		
-		
-	}
-
+  }
 }
+  

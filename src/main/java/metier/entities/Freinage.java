@@ -1,19 +1,25 @@
 package metier.entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+@Data @AllArgsConstructor @NoArgsConstructor @ToString 
+@Entity
+@DiscriminatorValue("Freinage")
 public class Freinage extends Composant {
-	private ArrayList<ComponentFreinage> componentFreinages;
-
-	public ArrayList<ComponentFreinage> getComponentFreinages() {
-		return componentFreinages;
-	}
-
-	public void setComponentFreinages(ArrayList<ComponentFreinage> componentFreinages) {
-		this.componentFreinages = componentFreinages;
-	}
-
-	
-	
-	
+    @ManyToMany
+    @JoinTable(name = "Freinage_ComponentFreinage",
+    joinColumns={@JoinColumn(name="idFreinage", referencedColumnName="id")},
+    inverseJoinColumns={@JoinColumn(name="idComponantFreinage", referencedColumnName="id")})
+	private List<ComponentFreinage> componentFreinages = new ArrayList<ComponentFreinage>();
 }

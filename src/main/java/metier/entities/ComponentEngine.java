@@ -16,6 +16,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,5 +35,5 @@ public class ComponentEngine extends Composant implements Serializable {
 	@ManyToMany(mappedBy = "componentEngines", fetch = FetchType.EAGER)
 	List<Engine> engines =  new ArrayList<>();
 
-	
+
 }

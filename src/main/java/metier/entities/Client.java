@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,12 +26,8 @@ public class Client {
 	private String mail;
 	private String city;
 	private String adress;
-	private String passowrd;
-	
+	private String passowrd;	
 	@OneToMany(mappedBy = "client")
 	private List<Commande> commandes ;
-	
-	
-	
 }
 
