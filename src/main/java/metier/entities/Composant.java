@@ -18,7 +18,7 @@ import javax.persistence.InheritanceType;
 @DiscriminatorColumn(name = "Componentname",discriminatorType = DiscriminatorType.STRING,length = 15)
 public abstract class Composant implements Serializable {
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private String description;
@@ -29,8 +29,8 @@ public abstract class Composant implements Serializable {
 	private int quantity;
 	private int numberPersonRate;
 	private int numberRate;
-	//private ArrayList<Category> categories;
-	//private ArrayList<ComposantQuantity> composantQuantities;
+	private ArrayList<Category> categories;
+	private ArrayList<ComposantQuantity> composantQuantities;
 	
 	
 	public int calculRate() {
