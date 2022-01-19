@@ -1,19 +1,13 @@
 package metier.entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+@Data @AllArgsConstructor @NoArgsConstructor @ToString
 public class TrainRoulant extends Composant {
-	private ArrayList<ComponentTrainRoulant> trainRoulants;
-
-	public ArrayList<ComponentTrainRoulant> getTrainRoulants() {
-		return trainRoulants;
-	}
-
-	public void setTrainRoulants(ArrayList<ComponentTrainRoulant> trainRoulants) {
-		this.trainRoulants = trainRoulants;
-	}
-
-	
-	
-	
+	private List<ComponentTrainRoulant> trainRoulants = new ArrayList<ComponentTrainRoulant>();
 }

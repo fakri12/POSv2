@@ -1,4 +1,4 @@
-package metier.repositories;
+package metier.entities.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

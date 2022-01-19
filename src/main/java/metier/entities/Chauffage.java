@@ -1,19 +1,16 @@
 package metier.entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+
+@Data @AllArgsConstructor @NoArgsConstructor @ToString
 public class Chauffage extends Composant {
-	private ArrayList<ComponentChauffage> componentChauffages;
-
-	public ArrayList<ComponentChauffage> getComponentChauffages() {
-		return componentChauffages;
-	}
-
-	public void setComponentChauffages(ArrayList<ComponentChauffage> componentChauffages) {
-		this.componentChauffages = componentChauffages;
-	}
-
+	private List<ComponentChauffage> componentChauffages = new ArrayList<ComponentChauffage>();	
 	
-	
-	
-}
+} 

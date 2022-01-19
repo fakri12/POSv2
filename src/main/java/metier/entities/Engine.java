@@ -1,17 +1,13 @@
 package metier.entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+@Data @AllArgsConstructor @NoArgsConstructor @ToString
 public class Engine extends Composant {
-	private ArrayList<ComponentEngine> componentEngines;
-
-	public ArrayList<ComponentEngine> getComponentEngines() {
-		return componentEngines;
-	}
-
-	public void setComponentEngines(ArrayList<ComponentEngine> componentEngines) {
-		this.componentEngines = componentEngines;
-	}
-	
-	
+	private List<ComponentEngine> componentEngines = new ArrayList<ComponentEngine>();
 }
