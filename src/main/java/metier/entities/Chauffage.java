@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,5 +25,6 @@ public class Chauffage extends Composant {
 	@JoinTable(name = "Chauffage_ComponentChauffage",
     joinColumns=@JoinColumn(name="idChauffage", referencedColumnName="id"),
     inverseJoinColumns=@JoinColumn(name="idComponentChauffage", referencedColumnName="id"))  
+	@JsonIgnore
 	private List<ComponentChauffage> componentChauffages=new ArrayList<ComponentChauffage>();
 }

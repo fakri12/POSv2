@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @DiscriminatorValue("TrainRoulant")
@@ -17,16 +19,9 @@ public class TrainRoulant extends Composant {
 	@ManyToMany
 	@JoinTable(name = "TrainRoulant_ComponentTrainRoulant",
     joinColumns=@JoinColumn(name="idTrainRoulant", referencedColumnName="id"),
-    inverseJoinColumns=@JoinColumn(name="idComponentTrainRoulant", referencedColumnName="id"))  
+    inverseJoinColumns=@JoinColumn(name="idComponentTrainRoulant", referencedColumnName="id")) 
+	@JsonIgnore
 	private List<ComponentTrainRoulant> trainRoulants =new ArrayList<ComponentTrainRoulant>();
-
-	public List<ComponentTrainRoulant> getTrainRoulants() {
-		return trainRoulants;
-	}
-
-	public void setTrainRoulants(List<ComponentTrainRoulant> trainRoulants) {
-		this.trainRoulants = trainRoulants;
-	}
 
 
 	

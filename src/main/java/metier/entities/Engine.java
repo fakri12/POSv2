@@ -15,6 +15,9 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,8 +30,8 @@ public class Engine extends Composant implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	
 	@ManyToMany(fetch = FetchType.EAGER)
+	@JsonIgnore
 	private List<ComponentEngine> componentEngines =  new ArrayList<ComponentEngine>();
 
 	

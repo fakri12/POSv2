@@ -30,9 +30,6 @@ public class Commande {
 	@OneToOne
 	private Reclamation reclamation;
 	
-	
 	@OneToMany(mappedBy = "commande")
     private List<ComposantQuantity> composantQuantities;
-
-
 }
