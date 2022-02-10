@@ -5,10 +5,11 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.2</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>2.6.2</version> 
+		<relativePath/>
+		 <!-- lookup parent from repository -->
 	</parent>
-	<groupId>pos</groupId>
+	<groupId>pos</groupId> 
 	<artifactId>POSv2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>POSv2</name>
@@ -16,17 +17,89 @@
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
-	<dependencies>
+<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.google.api-client/google-api-client -->
-           	<dependency>
+	<dependency>
 	    <groupId>com.google.api-client</groupId>
 	    <artifactId>google-api-client</artifactId>
 	    <version>1.30.5</version>
 	</dependency>
+	<dependency>
+	    <groupId>org.springframework.social</groupId>
+	    <artifactId>spring-social-facebook</artifactId>
+	    <version>2.0.3.RELEASE</version>
+	</dependency>
+	
+<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt</artifactId>
+    <version>0.9.1</version>
+</dependency>
+<dependency>
+    <groupId>com.auth0</groupId>
+    <artifactId>java-jwt</artifactId>
+    <version>3.8.1</version>
+</dependency>
+<!-- 	<dependency>
+	    <groupId>com.auth0</groupId>
+	    <artifactId>java-jwt</artifactId>
+	    <version>3.4.1</version>
+	</dependency> -->
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.security.oauth.boot</groupId>
+		    <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+		    <version>2.1.8.RELEASE</version>
+		</dependency>
 	</dependencies>
 
 	<build>

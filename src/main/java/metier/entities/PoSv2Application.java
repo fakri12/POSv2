@@ -8,11 +8,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.stereotype.Service;
 
-import metier.entities.Service.ClientService;
+import metier.entities.repositories.CategoryRepository;
 import metier.entities.repositories.ClientRepository;
 import metier.entities.repositories.CommandeRepository;
 import metier.entities.repositories.ComponentRepository;
@@ -31,6 +30,8 @@ public class PoSv2Application implements CommandLineRunner {
 	private ClientRepository clientRepository;
 	@Autowired
 	private ReclamationRepository reclamationRepository;
+	@Autowired
+	private CategoryRepository categoryRepository;
 	@Autowired
 	private CommandeRepository commandeRepository;
 	@Autowired
@@ -92,8 +93,9 @@ public class PoSv2Application implements CommandLineRunner {
 //		
 //		commandeRepository.save(commande);
 		
-	
-		
+	    Category categorie= new Category();
+	    categorie.setMarque("BMW");
+	    categoryRepository.save(categorie);
 		
 		
   }
