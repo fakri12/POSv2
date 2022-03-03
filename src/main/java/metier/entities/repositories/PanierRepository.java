@@ -4,9 +4,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import metier.entities.Composant;
+import metier.entities.Client;
+import metier.entities.Panier;
+
 @CrossOrigin("*")
 @RepositoryRestResource
-public interface ComponentRepository extends JpaRepository<Composant,Long> {
-	
+public interface PanierRepository extends JpaRepository<Panier, Long>{
+	Panier findByClient(Client clientpanier);
 }

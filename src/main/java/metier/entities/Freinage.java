@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,5 +23,6 @@ public class Freinage extends Composant {
     @JoinTable(name = "Freinage_ComponentFreinage",
     joinColumns={@JoinColumn(name="idFreinage", referencedColumnName="id")},
     inverseJoinColumns={@JoinColumn(name="idComponantFreinage", referencedColumnName="id")})
+    @JsonIgnore
 	private List<ComponentFreinage> componentFreinages = new ArrayList<ComponentFreinage>();
 }

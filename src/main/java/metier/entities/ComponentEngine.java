@@ -1,14 +1,36 @@
 package metier.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Data @AllArgsConstructor @NoArgsConstructor @ToString
-public class ComponentEngine extends Composant {
-	private List<Engine> engines = new ArrayList<Engine>();
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "composantEngine",length = 15)
+@DiscriminatorValue("ComposantEngine")
+@Data @NoArgsConstructor @AllArgsConstructor @ToString
+public class ComponentEngine extends Composant implements Serializable {
+	
+
+	private static final long serialVersionUID = 1L;
+	@ManyToMany(mappedBy = "componentEngines", fetch = FetchType.EAGER)
+	List<Engine> engines =  new ArrayList<>();
+
+
 }
