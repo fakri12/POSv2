@@ -24,7 +24,6 @@ import metier.entities.repositories.ReclamationRepository;
 @EnableAuthorizationServer
 public class PoSv2Application implements CommandLineRunner {
 
-
 	@Autowired
 	private ComponentRepository componentRepository;
 	@Autowired
@@ -39,7 +38,6 @@ public class PoSv2Application implements CommandLineRunner {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(PoSv2Application.class, args);
-	
 
 	}
 	@Override

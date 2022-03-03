@@ -17,6 +17,6 @@ public class Reclamation {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String detailsReclamation;	
-	@OneToOne(mappedBy = "reclamation")
+	@OneToOne
 	private Commande commande; 
 }

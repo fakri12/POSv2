@@ -27,7 +27,7 @@ public class Commande {
 	@ManyToOne
 	private Client client;
 	
-	@OneToOne
+	@OneToOne(mappedBy = "commande")
 	private Reclamation reclamation;
 	
 	@OneToMany(mappedBy = "commande")

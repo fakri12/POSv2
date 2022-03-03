@@ -23,6 +23,6 @@ public class ComposantQuantity {
 	private Commande commande;
 	
 	@ManyToOne
-	private Composant composant;
+	private Composant composant; 
 
 }

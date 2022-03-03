@@ -24,6 +24,10 @@ public class Client {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String f_name;
+	
+    private String verificationCode;
+    private boolean enabled;
+    
 	private String l_name;
 	private String mail;
 	private String city;

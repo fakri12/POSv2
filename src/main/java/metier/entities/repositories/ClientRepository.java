@@ -8,4 +8,6 @@ import metier.entities.Client;
 @CrossOrigin("*")
 public interface ClientRepository extends JpaRepository<Client, Long> {
 	public abstract Client findByMail(String mail);
+	public boolean existsByMail(String mail); 
+	public Client findByVerificationCode(String code);
 }
